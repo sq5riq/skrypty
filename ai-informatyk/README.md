@@ -7,7 +7,7 @@ Artykuł i wyniki testów na blogu: [Ai INFORMATYK](https://marcinnoga75.blogspo
 ## Co mierzy skrypt?
 1. **RAM -> VRAM (PCIe H2D)** – wysyłanie danych z pamięci RAM do pamięci karty graficznej.
 2. **VRAM -> RAM (PCIe D2H)** – pobieranie danych z karty graficznej do pamięci RAM.
-3. **VRAM -> VRAM (GDDR6 D2D)** – kopiowanie danych bezpośrednio wewnątrz pamięci GPU.
+3. **VRAM -> VRAM (GDDR D2D)** – kopiowanie danych bezpośrednio wewnątrz pamięci GPU.
 4. **RAM -> RAM (CPU wielowątkowo)** – kopiowanie bloków pamięci w RAM przy użyciu wielu wątków procesora.
 
 ## Wymagania i instalacja
