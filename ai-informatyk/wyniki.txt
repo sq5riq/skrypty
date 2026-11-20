@@ -1,0 +1,132 @@
+C:\Users\MNOGA\Downloads>python test_int8_nvidia.py
+========================================================================
+ TEST WYDAJNOSCI INT8 NVIDIA - SYMULACJA OBCIAZENIA MODELU AI
+========================================================================
+PyTorch:          2.11.0+cu128
+CUDA w PyTorch:   12.8
+GPU:              NVIDIA GeForce GTX 1650
+Pamiec VRAM:      4.00 GB
+Compute capability: 7.5
+========================================================================
+Rozmiar macierzy: 4096 x 4096
+Czas pomiaru:     10.0 s
+Rozgrzewka:       5 iteracji
+Rozgrzewanie GPU...
+
+------------------------------------------------------------------------
+ WYNIK
+------------------------------------------------------------------------
+Liczba iteracji:  773
+Czas GPU:         10.001 s
+Czas iteracji:    12.938 ms
+Wydajnosc INT8:   10.62 TOPS
+Wynik kontrolny:  106050
+------------------------------------------------------------------------
+TOPS = biliony operacji (mnozenie + dodawanie) na sekunde.
+Wynik dotyczy samego GEMM INT8, nie szybkosci generowania tokenow.
+
+========================================================================
+ TEST WYDAJNOSCI INT8 NVIDIA - SYMULACJA OBCIAZENIA MODELU AI
+========================================================================
+PyTorch:          2.11.0+cu128
+CUDA w PyTorch:   12.8
+GPU:              NVIDIA GeForce RTX 3070
+Pamiec VRAM:      8.00 GB
+Compute capability: 8.6
+========================================================================
+Rozmiar macierzy: 4096 x 4096
+Czas pomiaru:     10.0 s
+Rozgrzewka:       5 iteracji
+Rozgrzewanie GPU...
+[GPU] obciazenie:   0% | VRAM: 898/8192 MiB | moc: 9.82 W | temp.: 38 C
+[GPU] obciazenie:  99% | VRAM: 898/8192 MiB | moc: 140.25 W | temp.: 53 C
+[GPU] obciazenie:  99% | VRAM: 898/8192 MiB | moc: 239.28 W | temp.: 55 C
+[GPU] obciazenie:  99% | VRAM: 898/8192 MiB | moc: 239.07 W | temp.: 55 C
+[GPU] obciazenie:  99% | VRAM: 898/8192 MiB | moc: 239.37 W | temp.: 56 C
+[GPU] obciazenie:  98% | VRAM: 898/8192 MiB | moc: 239.36 W | temp.: 57 C
+[GPU] obciazenie:  99% | VRAM: 898/8192 MiB | moc: 239.51 W | temp.: 57 C
+[GPU] obciazenie:  99% | VRAM: 898/8192 MiB | moc: 239.37 W | temp.: 57 C
+[GPU] obciazenie:  99% | VRAM: 898/8192 MiB | moc: 239.30 W | temp.: 58 C
+[GPU] obciazenie:  99% | VRAM: 898/8192 MiB | moc: 239.29 W | temp.: 59 C
+
+------------------------------------------------------------------------
+ WYNIK
+------------------------------------------------------------------------
+Liczba iteracji:  2944
+Czas GPU:         10.001 s
+Czas iteracji:    3.397 ms
+Wydajnosc INT8:   40.46 TOPS
+Wynik kontrolny:  252408
+------------------------------------------------------------------------
+TOPS = biliony operacji (mnozenie + dodawanie) na sekunde.
+Wynik dotyczy samego GEMM INT8, nie szybkosci generowania tokenow.
+
+C:\Users\WS218VR\Downloads>python test_cupy.py
+C:\Users\WS218VR\AppData\Local\Programs\Python\Python312\Lib\site-packages\cupy\_environment.py:286: UserWarning: CUDA path could not be detected. Set CUDA_PATH environment variable if CuPy fails to load.
+  warnings.warn(
+Konfiguracja: blok 2.0 GB x 100 powtórzeń = 200.0 GB na etap
+Testowany CPU: AMD Ryzen 7 5800X 8-Core Processor (16 wątków)
+Testowane GPU: NVIDIA GeForce RTX 3070
+GPU RAM: 8.00 GB
+Wolne:   6.95 GB
+Alokacja pamięci RAM oraz VRAM... Proszę czekać.
+Wolne:   4.95 GB
+Zajęto VRAM: 2.00 GB
+
+----------------------------------------------------------
+1. Rozpoczynam test: RAM -> VRAM (200 GB)...
+   Czas: 16.448 s | Prędkość: 12.16 GB/s
+----------------------------------------------------------
+2. Rozpoczynam test: VRAM -> RAM (200 GB)...
+   Czas: 16.299 s | Prędkość: 12.27 GB/s
+----------------------------------------------------------
+3. Rozpoczynam test: VRAM -> VRAM (200.0 GB)...
+   Czas: 1.065 s | Prędkość: 187.73 GB/s
+----------------------------------------------------------
+4. Rozpoczynam test: RAM -> RAM (200 GB, 16 wątków CPU)...
+   Czas: 14.295 s | Prędkość: 13.99 GB/s
+
+==========================================================
+PODSUMOWANIE WYDAJNOŚCI
+CPU: AMD Ryzen 7 5800X 8-Core Processor
+GPU: NVIDIA GeForce RTX 3070
+----------------------------------------------------------
+  RAM  -> RAM  (CPU 16 wątków):  13.99 GB/s
+  RAM  -> VRAM (PCIe H2D):      12.16 GB/s
+  VRAM -> RAM  (PCIe D2H):      12.27 GB/s
+  VRAM -> VRAM (GDDR D2D):    187.73 GB/s
+==========================================================
+
+C:\Users\MNOGA\Downloads>python test_cupy.py
+Konfiguracja: blok 1.0 GB x 100 powtórzeń = 100.0 GB na etap
+Testowany CPU: AMD Ryzen 5 5600X 6-Core Processor (12 wątków)
+Testowane GPU: NVIDIA GeForce GTX 1650
+GPU RAM: 4.00 GB
+Wolne:   3.22 GB
+Alokacja pamięci RAM oraz VRAM... Proszę czekać.
+Wolne:   2.22 GB
+Zajęto VRAM: 1.00 GB
+
+----------------------------------------------------------
+1. Rozpoczynam test: RAM -> VRAM (100 GB)...
+   Czas: 8.194 s | Prędkość: 12.20 GB/s
+----------------------------------------------------------
+2. Rozpoczynam test: VRAM -> RAM (100 GB)...
+   Czas: 8.137 s | Prędkość: 12.29 GB/s
+----------------------------------------------------------
+3. Rozpoczynam test: VRAM -> VRAM (100.0 GB)...
+   Czas: 1.342 s | Prędkość: 74.53 GB/s
+----------------------------------------------------------
+4. Rozpoczynam test: RAM -> RAM (100 GB, 12 wątków CPU)...
+   Czas: 5.966 s | Prędkość: 16.76 GB/s
+
+==========================================================
+PODSUMOWANIE WYDAJNOŚCI
+CPU: AMD Ryzen 5 5600X 6-Core Processor
+GPU: NVIDIA GeForce GTX 1650
+----------------------------------------------------------
+  RAM  -> RAM  (CPU 12 wątków):  16.76 GB/s
+  RAM  -> VRAM (PCIe H2D):      12.20 GB/s
+  VRAM -> RAM  (PCIe D2H):      12.29 GB/s
+  VRAM -> VRAM (GDDR D2D):     74.53 GB/s
+==========================================================
